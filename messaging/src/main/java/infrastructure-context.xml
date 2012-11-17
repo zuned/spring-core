@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+		<property name="brokerURL" value="vm://embedded?broker.persistent=false" />
+	</bean>
+
+	<bean id="messageQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="messaging.messageQueue"></constructor-arg>
+	</bean>
+	
+	<bean id="responseQueue" class="org.apache.activemq.command.ActiveMQQueue">
+		<constructor-arg value="messaging.responseQueue"></constructor-arg>
+	</bean>
+</beans>
